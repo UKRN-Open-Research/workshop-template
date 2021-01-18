@@ -57,22 +57,10 @@ need any extra information.
 Check DC curriculum
 {% endcomment %}
 
-{% if site.carpentry == "dc" %}
+{% if site.topic == "dc" %}
 {% unless site.curriculum == "dc-ecology" or site.curriculum == "dc-genomics" or site.curriculum == "dc-socsci" or site.curriculum == "dc-geospatial" %}
 <div class="alert alert-warning">
 It looks like you are setting up a website for a Data Carpentry curriculum but you haven't specified the curriculum type in the <code>_config.yml</code> file (current value in <code>_config.yml</code>: "<strong>{{ site.curriculum }}</strong>", possible values: <code>dc-ecology</code>, <code>dc-genomics</code>, <code>dc-socsci</code>, or <code>dc-geospatial</code>). After editing this file, you need to run <code>make serve</code> again to see the changes reflected.
-</div>
-{% endunless %}
-{% endif %}
-
-{% comment %}
-Check SWC curriculum
-{% endcomment %}
-
-{% if site.carpentry == "swc" %}
-{% unless site.curriculum == "swc-inflammation" or site.curriculum == "swc-gapminder" %}
-<div class="alert alert-warning">
-It looks like you are setting up a website for a Software Carpentry curriculum but you haven't specified the curriculum type in the <code>_config.yml</code> file (current value in <code>_config.yml</code>: "<strong>{{ site.curriculum }}</strong>", possible values: <code>swc-inflammation</code>, or <code>swc-gapminder</code>). After editing this file, you need to run <code>make serve</code> again to see the changes reflected.
 </div>
 {% endunless %}
 {% endif %}
@@ -106,26 +94,22 @@ INTRODUCTION
 Edit the general explanatory paragraph below if you want to change
 the pitch.
 {% endcomment %}
-{% if site.carpentry == "swc" %}
-{% include swc/intro.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/intro.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/intro.html %}
-{% endif %}
-
-{% comment %}
-AUDIENCE
-
-Explain who your audience is.  (In particular, tell readers if the
-workshop is only open to people from a particular institution.
-{% endcomment %}
-{% if site.carpentry == "swc" %}
-{% include swc/who.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/who.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/who.html %}
+{% if site.workshop-topic == "open-data" %}
+{% include open-data/intro.html %}
+{% elsif site.workshop-topic == "open-code" %}
+{% include open-code/intro.html %}
+{% elsif site.workshop-topic == "open-access" %}
+{% include open-access/intro.html %}
+{% elsif site.workshop-topic == "preregistration" %}
+{% include preregistration/intro.html %}
+{% elsif site.workshop-topic == "preprints" %}
+{% include preprints/intro.html %}
+{% else %}
+<div class="alert alert-danger">
+<p>It looks like your <code>_config.yml</code> file is not set up correctly. The expected value of the <code>workshop-topic</code> variable is one of <code>"open-data"</code>, <code>"open-code"</code>, <code>"open-access"</code>, <code>"preprints"</code>, <code>"preregistration"</code>. The current value is <code>"{{ site.workshop-topic }}"</code>.</p>
+<p>For demonstration purposes, the <code>"preregistration"</code> intro is included below.</p>
+</div>
+{% include preregistration/intro.html %}
 {% endif %}
 
 {% comment %}
@@ -338,32 +322,12 @@ SCHEDULE
 
 Show the workshop's schedule.
 
-Small changes to the schedule can be made by modifying the
-`schedule.html` found in the `_includes` folder for your
-workshop type (`swc`, `lc`, or `dc`). Edit the items and
-times in the table to match your plans. You may also want to
-change 'Day 1' and 'Day 2' to be actual dates or days of the
-week.
-
-For larger changes, a blank template for a 4-day workshop
-(useful for online teaching for instance) can be found in
-`_includes/custom-schedule.html`. Add the times, and what
-you will be teaching to this file. You may also want to add
-rows to the table if you wish to break down the schedule
-further. To use this custom schedule here, replace the block
-of code below the Schedule `<h2>` header below with
-`{% include custom-schedule.html %}`.
+The schedule is automatically generated from the lessons in _config.yml, which is in turn produced by the generator tool.
 {% endcomment %}
 
 <h2 id="schedule">Schedule</h2>
 
-{% if site.carpentry == "swc" %}
-{% include swc/schedule.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/schedule.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/schedule.html %}
-{% endif %}
+{% include schedule.html %}
 
 <hr/>
 
@@ -383,14 +347,7 @@ please preview your site before committing, and make sure to run
 <h2 id="setup">Setup</h2>
 
 <p>
-  To participate in a
-  {% if site.carpentry == "swc" %}
-  Software Carpentry
-  {% elsif site.carpentry == "dc" %}
-  Data Carpentry
-  {% elsif site.carpentry == "lc" %}
-  Library Carpentry
-  {% endif %}
+  To participate in a {{ site.workshop-title | capitalize }}
   workshop,
   you will need access to the software described below.
   In addition, you will need an up-to-date web browser.
@@ -420,10 +377,14 @@ These are the installation instructions for the tools used
 during the workshop.
 {% endcomment %}
 
-{% if site.carpentry == "swc" %}
-{% include swc/setup.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/setup.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/setup.html %}
+{% if site.workshop-topic == "open-data" %}
+{% include open-data/setup.html %}
+{% elsif site.workshop-topic == "open-code" %}
+{% include open-code/setup.html %}
+{% elsif site.workshop-topic == "open-access" %}
+{% include open-access/setup.html %}
+{% elsif site.workshop-topic == "preregistration" %}
+{% include preregistration/setup.html %}
+{% elsif site.workshop-topic == "preprints" %}
+{% include preprints/setup.html %}
 {% endif %}

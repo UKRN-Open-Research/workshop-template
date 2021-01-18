@@ -1,0 +1,39 @@
+{% assign current_day = 0 %}
+{% for x in site.workshop-lessons %}
+{% assign lesson = x.lesson %}
+{% assign next_lesson_index = forloop.index0 | plus: 1 %}
+{% assign next_lesson_day = site.workshop-lessons[next_lesson_index].lesson.day | default: 0 %}
+{% if lesson.day != current_day %}
+{% assign current_day = lesson.day %}
+{% assign new_row = current_day | modulo: 2 %}
+{% if new_row == 1 %}
+<div class="row">        <!-- Rows contain two days -->
+{% endif %}
+  <div class="col-md-6"> <!-- left column -->
+    <h3>Day {{ current_day }}</h3>
+    <table class="table table-striped">
+      {% if forloop.first %}
+      <tr>               <!-- The first time through we want the pre_survey   -->
+        <td>Before starting</td>
+        <td><a href="{{ site.pre_survey }}{{ site.github.project_title }}" target="_blank">Pre-workshop survey</a></td>
+      </tr>
+      {% endif %}
+{% endif %}
+      <tr>               <!-- Every event goes on a new row   -->
+        <td>{{ lesson.duration }}</td>        <!-- time    -->
+        <td>{{ lesson.title }}</td>        <!-- content -->
+      </tr>
+{% if next_lesson_day != current_day %}
+      {% if forloop.last %}
+      <tr>               <!-- The last time through we want the post_survey  -->
+        <td>End</td>
+        <td><a href="{{ site.post_survey }}{{ site.github.project_title }}" target="_blank">Post-workshop survey</a></td>
+      </tr>
+      {% endif %}
+    </table>
+  </div>
+{% if new_row == 0 or forloop.last %}
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
