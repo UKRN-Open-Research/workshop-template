@@ -3,6 +3,59 @@ layout: page
 title: Background and Design
 permalink: /design/
 ---
+
+## Project structure
+
+This template is a skeleton for creating workshop websites.
+It is used by the [UKRN Workshop Builder](/404.html) to produce repositories containing complete, bespoke workshop websites which are owned and controlled by the individual workshop hosts.
+The UKRN offers train-the-trainer instruction taking people through the creation of their workshop using the Builder tool.
+
+We can understand how to customise websites created from this template by understanding how the Builder tool does its job.
+The overarching framework in which we work is as follows:
+* **Topics** are areas of Open Research practice for which the UKRN has developed enough expertise and resources to allow people to design and deliver **workshops** teaching people the skills they need to implement those practices in their own work.
+    Topics will usually be accompanied by a [UKRN Primer](https://ukrn.org/primers) and other central resources.
+    * Examples include _Open Code_ and _Preregistration_.
+* **Workshops** are taught classes which equip attendees with the practical skills necessary to embed an Open Research **topic** in their workflow.
+    Each workshop is designed and delivered by a researcher and covers the practical implementation of a topic for researchers _in a particular area_.
+    Each workshop is supported by a website which contains all of the resources required to participate.
+    The topic of the workshop is delivered via a series of **lessons**.
+* **Lessons** are collections of **episodes** and form modular blocks of content on specific skills.
+    Lessons are only used for collecting episodes together - they don't actually show up as discrete entities in the final workshops.
+    * Examples for lessons in the _Open Code_ topic might be: _Introducing Open Code_, _Version Control_, _Getting a DOI for Code_.
+* **Episodes** are indivisible chunks of content.
+    Episodes can be interspersed with breaks.
+    * The _Version Control_ lesson might include episodes on _Introducing Git_, _Publishing on GitHub_, and _Semantic Versioning_.
+
+### How the Builder tool works
+
+The Builder tool takes the following steps:
+1. Create a repository in the instructor's GitHub account from this template.
+2. Trim the template down to remove references to unused topics, implement any custom changes to the introductory or general-purpose pages, and write the schedule from the list of selected episodes.
+3. Import selected Lessons from existing GitHub repositories
+4. Customise the imported Lessons
+    1. Remove unused episodes
+    2. Prepend the repository owner name to the resources and their references to avoid conflicts
+    3. Apply any customisation to episodes
+
+All of these steps can be reproduced manually.
+Care should be taken when implementing episodes from different sources that they do not have conflicts over files in shared folders (e.g. that you don't have two different episodes trying to create `fig/example01.png`). Make sure to update references to these resources as well as the names of the resources themselves!
+
+### Customising Lessons
+
+Lessons are stored as GitHub repositories based on this template, but can be barebones because only the content is imported.
+Lessons should have at least one item in the `_episodes` or `_episodes_rmd` directory, and may additionally have resources in other directories.
+Lessons are imported into workshop websites and built and served as Jekyll pages as described below.
+
+To make your lesson appear automatically as an option in the appropriate workshop, ensure the GitHub repository has the appropriate tags. All lessons need the `ukrn-open-research` tag, and at least one topic tag (e.g. `open-code`) specifying which workshops the lesson will work with.
+
+#### Gotchas
+
+The Lessons require shared files which are shared with this basic template (e.g. layouts `_layouts`), and would therefore be duplicated for each lesson.
+To avoid this issue, the Builder tool checks whether the file to be copied is exactly the same as the version in the template, and skips it if so.
+If it is different, the user and repository are prepended to the filename, so `_layouts/base.html` becomes `_layouts/github-user_example-lesson_base.html` and references to `_layouts/base.html` in the lesson files are updated accordingly.
+
+## Working with Git and GitHub
+
 There are a few things you need to know in order to understand why we
 do things the way we do.  Some of them are specific to GitHub, rather
 than Git itself.
