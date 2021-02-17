@@ -322,7 +322,7 @@ SCHEDULE
 
 Show the workshop's schedule.
 
-The schedule is automatically generated from the lessons in _config.yml, which is in turn produced by the generator tool.
+The schedule is automatically generated from the lessons in `./_episodes` and `./episodes_rmd`, which is in turn produced by the generator tool.
 {% endcomment %}
 
 <h2 id="schedule">Schedule</h2>
