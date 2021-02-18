@@ -145,7 +145,7 @@ def check_humantime(time):
 
 def check_date(this_date):
     """
-    'startdate' and 'enddate' are machine-readable start and end dates
+    'start_date' is machine-readable start date
     for the workshop, and must be in YYYY-MM-DD format, e.g.,
     '2015-07-01'.
     """
@@ -271,13 +271,9 @@ HANDLERS = {
                    '"9:00 am - 5:00 pm", "09:00am - 05:00pm", "09:00-17:00" '
                    '(spaces are ignored).'),
 
-    'startdate':  (True, check_date,
-                   'startdate invalid. Must be of format year-month-day, ' +
+    'start_date':  (True, check_date,
+                   'start_date invalid. Must be of format year-month-day, ' +
                    'i.e., 2014-01-31'),
-
-    'enddate':    (False, check_date,
-                   'enddate invalid. Must be of format year-month-day, i.e.,' +
-                   ' 2014-01-31'),
 
     'latitude':    (True, check_latitude,
                    'latitude invalid. Check that it is a floating point, ' +

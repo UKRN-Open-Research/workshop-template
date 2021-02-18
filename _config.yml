@@ -1,28 +1,80 @@
 ---
-workshop-topic: TOPIC NOT SET
-title: My workshop
+
+topic:
+topic_help: >-
+  The topic is used to search for pre-existing lessons you can include in your workshop
+
+title:
+title_help: >-
+  The title should let people know the most important information - where the workshop is and what it covers
+
+# A list of hh_mm time formats [avoids jekyll auto-conversion].
+# Only days with scheduled items get a start time.
+# Days which can't be matched will use the first entry.
+start_time:
+  - 09_00
+start_time_help: >-
+  A list of start times for each day of the workshop. If shorter than the number of days, remaining days will use the first entry
+
+venue:
+venue_help: >-
+  The brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
+address:
+address_help: >-
+  The full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+country:
+country_help: >-
+  The lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
+language:
+language_help: >-
+  The lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the language the workshop will be conducted in
+latitude:
+latitude_help: >-
+  The decimal latitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
+longitude:
+longitude_help: >-
+  The decimal longitude of the workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
+start_date:
+start_date_help: >-
+  The machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+instructor: []
+instructor_help: >-
+  The list of instructors' names
+helper: []
+helper_help: >-
+  the list of helpers' names
+instructor_emails: []
+instructor_emails_help: >-
+  The list of contact email addresses for the hosts, lead instructors, or whoever else is handling questions
+collaborative_notes:
+collaborative_notes_help: >-
+  The URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document
+eventbrite:
+eventbrite_help: >-
+  The alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
+
+# list of files in path _includes/intro/*.md. .html files cannot be customised and are always included
+optional_intro_sections:
+  - requirements
+  - accessibility
+optional_intro_sections_help: >-
+  List of optional introductory sections which can be included and customised
+
+# list of files in _includes/install_instructions to use in the setup page
+setup_files:
+  - git
+  - r
+  - videoconferencing
+setup_files_help: >-
+  List of setup guides to include
+
 kind: workshop
+ukrn_email: ORT@ukrn.org
 repository: <USERNAME>/<PROJECT>
-email: ORT@ukrn.org
-amy_site: https://amy.carpentries.org
-carpentries_github: https://github.com/carpentries
-carpentries_pages: https://carpentries.github.io
 carpentries_site: https://carpentries.org/
-dc_site: https://datacarpentry.org
-example_repo: https://github.com/carpentries/lesson-example
-example_site: https://carpentries.github.io/lesson-example
-lc_site: https://librarycarpentry.org/
-swc_github: https://github.com/swcarpentry
-swc_pages: https://swcarpentry.github.io
-swc_site: https://software-carpentry.org
-template_repo: https://github.com/carpentries/styles
-training_site: https://carpentries.github.io/instructor-training
-workshop_repo: https://github.com/carpentries/workshop-template
-workshop_site: https://carpentries.github.io/workshop-template
 pre_survey: https://carpentries.typeform.com/to/wi32rS?slug=
 post_survey: https://carpentries.typeform.com/to/UgVdRQ?slug=
-start_time: # A list of hh_mm time formats (will be start times for days with scheduled items). Days which can't be matched will use the first entry. [hh_mm used to avoid jekyll auto-conversion!]
-  - 09_00
+
 collections:
   episodes:
     output: true
@@ -33,6 +85,7 @@ collections:
   extras:
     output: true
     permalink: /:path/index.html
+
 defaults:
   - values:
       root: .
@@ -49,8 +102,14 @@ defaults:
     values:
       root: ..
       layout: page
+
 exclude:
   - Makefile
   - bin/
   - .Rproj.user/
 highlighter: rouge
+
+ukrn-wb:
+  - file_lists:
+      - optional_intro_sections: "_includes/intro"
+      - setup_files: "_includes/install_instructions"
