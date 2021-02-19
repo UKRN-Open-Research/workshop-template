@@ -19,18 +19,14 @@ helpers: []
 instructor_emails: []
 collaborative_notes:
 eventbrite:
-
 # list of files in path _includes/intro/*.md. .html files cannot be customised and are always included
 optional_intro_sections:
   - requirements
   - accessibility
-
 # list of files in _includes/install_instructions to use in the setup page
 setup_files:
 
-setup_files_help: >-
-  List of setup guides to include
-
+# Custom but fixed fields
 kind: workshop
 ukrn_email: ORT@ukrn.org
 repository: <USERNAME>/<PROJECT>
@@ -38,6 +34,7 @@ carpentries_site: https://carpentries.org/
 pre_survey: https://carpentries.typeform.com/to/wi32rS?slug=
 post_survey: https://carpentries.typeform.com/to/UgVdRQ?slug=
 
+# Fixed fields
 collections:
   episodes:
     output: true
@@ -72,117 +69,176 @@ exclude:
   - .Rproj.user/
 highlighter: rouge
 
-ukrn-wb:
+# UKRN Workshop Builder metadata
+# Describes each of the custom variables
+ukrn_wb:
+    # We include the fields structure so that we can access JSON conversion of fields more readily (to numerical array where keys correspond to this numerical array).
+    # This does mean that all properties are required for all fields
+  - fields_structure:
+      - name # Pretty name of the field
+      - type # Data type
+      - help # Help text
+      - is_array # Whether data is a list
+      - is_required # Whether field is required
+      - format # Formatting details for data
+      - special # Special information for deriving data e.g. options list
   - fields:
       - topic:
-          - type: string
-          - help: >-
-              The topic is used to search for pre-existing lessons you can include in your workshop
-          - properties:
-              - required
+          - Workshop topic
+          - string
+          - >-
+            The topic is used to search for pre-existing lessons you can include in your workshop
+          - false
+          - true
+          - topic
+          - # special
+
       - title:
-          - type: string
-          - help: >-
-              The title should let people know the most important information - where the workshop is and what it covers
-          - properties:
-            - required
+          - Workshop title
+          - string
+          - >-
+            The title should let people know the most important information - where the workshop is and what it covers
+          - false
+          - true
+          - # format
+          - # special
       - start_times:
-          - type: time
-          - help: >-
-              A list of start times for each day of the workshop. If shorter than the number of days, remaining days will use the first entry
-          - properties:
-              - array
-              - required
-              - format:
-                  - hours_minutes
+          - Start time
+          - time
+          - >-
+            A list of start times for each day of the workshop. If shorter than the number of days, remaining days will use the first entry
+          - true
+          - true
+          - hours_minutes
+          - # special
+
       - venue:
-          - type: string
-          - help: >-
-              The brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
-          - properties:
+          - Workshop venue
+          - string
+          - >-
+            The brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
+          - # is_array
+          - # is_required
+          - # format
+          - # special
       - address:
-          - type: string
-          - help: >-
-              The full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
-          - properties:
+          - Venue address
+          - string
+          - >-
+            The full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+          - # is_array
+          - # is_required
+          - # format
+          - # special
       - country:
-          - type: string
-          - help: >-
-              Country code for the institution that hosts the workshop
-          - properties:
-              - iso-639-1
+          - Workshop country
+          - string
+          - >-
+            Country code for the institution that hosts the workshop
+          - # is_array
+          - # is_required
+          - iso-639-1
+          - # special
+
       - language:
-          - type: string
-          - help: >-
-              Language code for the language the workshop will be conducted in
-          - properties:
-              - iso-3166-1-alpha-2
+          - Workshop language
+          - string
+          - >-
+            Language code for the language the workshop will be conducted in
+          - # is_array
+          - # is_required
+          - iso-3166-1-alpha-2
+          - # special
+
       - latitude:
-          - type: number
-          - help: >-
-              Latitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
-          - properties:
-              - latitude
+          - Workshop latitude
+          - number
+          - >-
+            Latitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
+          - # is_array
+          - # is_required
+          - latitude
+          - # special
       - longitude:
-          - type: number
-          - help: >-
-              Longitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
-          - properties:
-              - longitude
+          - Workshop longitude
+          - number
+          - >-
+            Longitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
+          - # is_array
+          - # is_required
+          - longitude
+          - # special
       - start_date:
-          - type: date
-          - help: >-
-              Date the workshop starts
-          - properties:
-              - format:
-                  - years_months_days
+          - Workshop start date
+          - date
+          - >-
+            Date the workshop starts
+          - # is_array
+          - # is_required
+          - years-months-days
+          - # special
+
       - instructors:
-          - type: string
-          - help: >-
-              Instructor name(s)
-          - properties:
-              - array
-              - required
+          - Workshop instructor(s)
+          - string
+          - >-
+            Instructor name(s)
+          - true # is_array
+          - true # is_required
+          - # format
+          - # special
       - helpers:
-          - type: string
-          - help: >-
-              Helper name(s)
-          - properties:
-              - array
+          - Workshop helper(s)
+          - string
+          - >-
+            Helper name(s)
+          - true # is_array
+          - # is_required
+          - # format
+          - # special
       - instructor_emails:
-          - type: string
-          - help: >-
-              Instructor email address(es) for questions/comments/feedback
-          - properties:
-              - array
-              - email
+          - Contact email address(es)
+          - string
+          - >-
+            Instructor email address(es) for questions/comments/feedback
+          - true # is_array
+          - # is_required
+          - email # format
+          - # special
       - collaborative_notes:
-          - type: string
-          - help: >-
-              URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document
-          - properties:
+          - Collaborative notes link
+          - string
+          - >-
+            URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document
+          - # is_array
+          - # is_required
+          - # format
+          - # special
       - eventbrite:
-          - type: string
-          - help: >-
-              The alphanumeric key for Eventbrite registration, e.g., "1234567890AB"
-          - properties:
+          - Eventbrite key
+          - string
+          - >-
+            The alphanumeric key for Eventbrite registration, e.g., "1234567890AB"
+          - # is_array
+          - # is_required
+          - # format
+          - # special
       - optional_intro_sections:
-          - type: filename
-          - help: >-
-              Optional introductory sections which can be included on the homepage and customised
-          - properties:
-              - array
-              - directories:
-                  - _includes/intro
-              - filetypes:
-                  - md
+          - Optional introductory sections
+          - filename
+          - >-
+            Optional introductory sections which can be included on the homepage and customised
+          - true # is_array
+          - # is_required
+          - # format
+          - ["_includes/intro"] # special - directories to search
+
       - setup_files:
-          - type: filename
-          - help: >-
-              List of setup guides to include on the homepage
-          - properties:
-              - array
-              - directories:
-                  - _includes/install_instructions
-              - filetypes:
-                  - md
+          - Setup instructions
+          - filename
+          - >-
+            List of setup guides to include on the homepage
+          - true # is_array
+          - # is_required
+          - # format
+          - ["_includes/install_instructions"] # special - directories to search
