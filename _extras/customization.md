@@ -80,13 +80,13 @@ options.
     such as `2015-07-01`.  You must use four digits for the year and
     two each for the month and day.
 
-*   `instructor` is a comma-separated list of instructor names.  The
+*   `instructors` is a comma-separated list of instructor names.  The
     list must be enclosed in square brackets, and each name must be in
     double quotes, as in `["Alan Turing","Grace Hopper"]`.  Do not
     include other information (such as the word "instructor") in these
     values.
 
-*   `helper` is a comma-separated list of helper names formatted in the
+*   `helpers` is a comma-separated list of helper names formatted in the
     same way as the instructor names.  If there are no helpers, use an
     empty list `[]`.
 

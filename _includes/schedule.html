@@ -15,7 +15,7 @@
 {% comment %}If there are any episodes, find the start time.{% endcomment %}
 {% if day_episodes | size | at_least: 1 %}
 {% assign E = day_episodes | sort: 'order' %}
-{% assign START_TIME = site.start_time[index] | default: site.start_time[0] %}
+{% assign START_TIME = site.start_times[index] | default: site.start_times[0] %}
 {% assign index = index | plus: 1 %}
 {% else %}
 {% assign START_TIME = "" %}
@@ -97,4 +97,4 @@
 
 <!--<hr/>
 <style>.box {border: 2px solid black; padding: 1em;}</style>
-<div class="box">site.start_time: {{ site.start_time | date: '%H:%M' }}</div>-->
+<div class="box">site.start_times: {{ site.start_times | date: '%H:%M' }}</div>-->

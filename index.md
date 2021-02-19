@@ -216,18 +216,15 @@ The setup page simply loops through the entries in site.setup_files and links th
 {% endfor %}
 <h2 id="setup">Setup</h2>
 
-<p>
-  To participate in a {{ site.title | capitalize }}
-  workshop,
-  you will need access to the software described below.
-  Installing this software will take around {{ setup_time }} minutes.
-  In addition, you will need an up-to-date web browser.
-</p>
-<p>
-  We maintain a list of common issues that occur during installation as a reference for instructors
-  that may be useful on the
-  <a href = "https://github.com/carpentries/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
-</p>
+To participate in a {{ site.title | capitalize }}
+workshop,
+you will need access to the software described below.
+Installing this software will take around {{ setup_time }} minutes.
+In addition, you will need an up-to-date web browser.
+
+The Carpentries maintain a list of common issues that occur during installation as a reference for instructors
+that may be useful on the
+[Configuration Problems and Solutions wiki](https://github.com/carpentries/workshop-template/wiki/Configuration-Problems-and-Solutions).
 
 {% include intro/participant-setup.html %}
 {% endif %}

@@ -283,7 +283,7 @@ HANDLERS = {
                    'longitude invalid. Check that it is a floating point, ' +
                    'between -180 and 180'),
 
-    'instructor': (True, check_instructors,
+    'instructors': (True, check_instructors,
                    'instructor list isn\'t a valid list of format ' +
                    '["First instructor", "Second instructor",..]'),
 

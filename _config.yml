@@ -11,9 +11,9 @@ title_help: >-
 # A list of hh_mm time formats [avoids jekyll auto-conversion].
 # Only days with scheduled items get a start time.
 # Days which can't be matched will use the first entry.
-start_time:
+start_times:
   - 09_00
-start_time_help: >-
+start_times_help: >-
   A list of start times for each day of the workshop. If shorter than the number of days, remaining days will use the first entry
 
 venue:
@@ -37,11 +37,11 @@ longitude_help: >-
 start_date:
 start_date_help: >-
   The machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-instructor: []
-instructor_help: >-
+instructors: []
+instructors_help: >-
   The list of instructors' names
-helper: []
-helper_help: >-
+helpers: []
+helpers_help: >-
   the list of helpers' names
 instructor_emails: []
 instructor_emails_help: >-
@@ -113,3 +113,21 @@ ukrn-wb:
   - file_lists:
       - optional_intro_sections: "_includes/intro"
       - setup_files: "_includes/install_instructions"
+  - fields:
+      - required:
+          - topic
+          - title
+          - instructors
+          - instructor_emails
+          - start_times
+      - optional:
+          - venue
+          - address
+          - country
+          - language
+          - latitude
+          - longitude
+          - start_date
+          - helpers
+          - collaborative_notes
+          - eventbrite
