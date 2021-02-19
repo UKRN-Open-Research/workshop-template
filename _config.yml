@@ -1,70 +1,33 @@
 ---
 
 topic:
-topic_help: >-
-  The topic is used to search for pre-existing lessons you can include in your workshop
-
 title:
-title_help: >-
-  The title should let people know the most important information - where the workshop is and what it covers
-
 # A list of hh_mm time formats [avoids jekyll auto-conversion].
 # Only days with scheduled items get a start time.
 # Days which can't be matched will use the first entry.
 start_times:
   - 09_00
-start_times_help: >-
-  A list of start times for each day of the workshop. If shorter than the number of days, remaining days will use the first entry
-
 venue:
-venue_help: >-
-  The brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
 address:
-address_help: >-
-  The full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country:
-country_help: >-
-  The lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
 language:
-language_help: >-
-  The lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the language the workshop will be conducted in
 latitude:
-latitude_help: >-
-  The decimal latitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
 longitude:
-longitude_help: >-
-  The decimal longitude of the workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
 start_date:
-start_date_help: >-
-  The machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 instructors: []
-instructors_help: >-
-  The list of instructors' names
 helpers: []
-helpers_help: >-
-  the list of helpers' names
 instructor_emails: []
-instructor_emails_help: >-
-  The list of contact email addresses for the hosts, lead instructors, or whoever else is handling questions
 collaborative_notes:
-collaborative_notes_help: >-
-  The URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document
 eventbrite:
-eventbrite_help: >-
-  The alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 
 # list of files in path _includes/intro/*.md. .html files cannot be customised and are always included
 optional_intro_sections:
   - requirements
   - accessibility
-optional_intro_sections_help: >-
-  List of optional introductory sections which can be included and customised
 
 # list of files in _includes/install_instructions to use in the setup page
 setup_files:
-  - git
-  - r
-  - videoconferencing
+
 setup_files_help: >-
   List of setup guides to include
 
@@ -110,24 +73,116 @@ exclude:
 highlighter: rouge
 
 ukrn-wb:
-  - file_lists:
-      - optional_intro_sections: "_includes/intro"
-      - setup_files: "_includes/install_instructions"
   - fields:
-      - required:
-          - topic
-          - title
-          - instructors
-          - instructor_emails
-          - start_times
-      - optional:
-          - venue
-          - address
-          - country
-          - language
-          - latitude
-          - longitude
-          - start_date
-          - helpers
-          - collaborative_notes
-          - eventbrite
+      - topic:
+          - type: string
+          - help: >-
+              The topic is used to search for pre-existing lessons you can include in your workshop
+          - properties:
+              - required
+      - title:
+          - type: string
+          - help: >-
+              The title should let people know the most important information - where the workshop is and what it covers
+          - properties:
+            - required
+      - start_times:
+          - type: time
+          - help: >-
+              A list of start times for each day of the workshop. If shorter than the number of days, remaining days will use the first entry
+          - properties:
+              - array
+              - required
+              - format:
+                  - hours_minutes
+      - venue:
+          - type: string
+          - help: >-
+              The brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
+          - properties:
+      - address:
+          - type: string
+          - help: >-
+              The full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+          - properties:
+      - country:
+          - type: string
+          - help: >-
+              Country code for the institution that hosts the workshop
+          - properties:
+              - iso-639-1
+      - language:
+          - type: string
+          - help: >-
+              Language code for the language the workshop will be conducted in
+          - properties:
+              - iso-3166-1-alpha-2
+      - latitude:
+          - type: number
+          - help: >-
+              Latitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
+          - properties:
+              - latitude
+      - longitude:
+          - type: number
+          - help: >-
+              Longitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
+          - properties:
+              - longitude
+      - start_date:
+          - type: date
+          - help: >-
+              Date the workshop starts
+          - properties:
+              - format:
+                  - years_months_days
+      - instructors:
+          - type: string
+          - help: >-
+              Instructor name(s)
+          - properties:
+              - array
+              - required
+      - helpers:
+          - type: string
+          - help: >-
+              Helper name(s)
+          - properties:
+              - array
+      - instructor_emails:
+          - type: string
+          - help: >-
+              Instructor email address(es) for questions/comments/feedback
+          - properties:
+              - array
+              - email
+      - collaborative_notes:
+          - type: string
+          - help: >-
+              URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document
+          - properties:
+      - eventbrite:
+          - type: string
+          - help: >-
+              The alphanumeric key for Eventbrite registration, e.g., "1234567890AB"
+          - properties:
+      - optional_intro_sections:
+          - type: filename
+          - help: >-
+              Optional introductory sections which can be included on the homepage and customised
+          - properties:
+              - array
+              - directories:
+                  - _includes/intro
+              - filetypes:
+                  - md
+      - setup_files:
+          - type: filename
+          - help: >-
+              List of setup guides to include on the homepage
+          - properties:
+              - array
+              - directories:
+                  - _includes/install_instructions
+              - filetypes:
+                  - md
