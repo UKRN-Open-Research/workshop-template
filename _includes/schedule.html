@@ -65,11 +65,11 @@
             <td>
                 {% if ep.summary %}
                 <details>
-                    <summary><a href="{{ep.url}}">{{ ep.title }}</a></summary>
+                    <summary><a href="{{ep.url | relative_url }}">{{ ep.title }}</a></summary>
                     {{ ep.summary | newlines_to_br }}
                 </details>
                 {% else %}
-                <a href="{{ep.url}}">{{ ep. title }}</a>
+                <a href="{{ep.url | relative_rul }}">{{ ep. title }}</a>
                 {% endif %}
             </td>        <!-- content -->
         </tr>
