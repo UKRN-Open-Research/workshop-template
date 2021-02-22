@@ -105,7 +105,7 @@ ukrn_wb:
             - false
             - null
             - null
-        - ukrn_wb-rules:
+        - ukrn_wb_rules:
             - UKRN Workshop Builder rules
             - string
             - >-
