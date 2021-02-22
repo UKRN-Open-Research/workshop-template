@@ -10,7 +10,7 @@ questions: # list of questions we are trying to answer
 objectives: # list of learning outcomes
 keypoints: # list of take-home points
 is-break: true # whether this episode is a break (has different presentation)
-ukrn_wb-rules: # list of rules for the UKRN Workshop Builder tool
+ukrn_wb_rules: # list of rules for the UKRN Workshop Builder tool
     - allow-multiple # when dragged into the schedule, create a new instance
 ---
 
