@@ -23,95 +23,96 @@ ukrn_wb:
         - is_required # Whether field is required
         - format # Formatting details for data
         - special # Special information for deriving data e.g. options list
-    - title:
-        - Title
-        - string
-        - >-
-            The title for the episode
-        - false
-        - true
-        - null
-        - null
-    - teaching:
-        - Teaching time
-        - number
-        - >-
-            The number of minutes teaching time required
-        - false
-        - false
-        - null
-        - null
-    - exercises:
-        - Working time
-        - number
-        - >-
-            The number of minutes required to complete any exercises
-        - false
-        - false
-        - null
-        - null
-    - duration:
-        - Duration
-        - number
-        - >-
-            Additional duration not accounted for by teaching or exercise time (e.g. break time)
-        - false
-        - false
-        - null
-        - null
-    - summary:
-        - Summary
-        - string
-        - >-
-            Short text summarising what happens in the episode
-        - false
-        - false
-        - null
-        - null
-    - questions:
-        - Questions
-        - string
-        - >-
-            Questions which will be addressed during the episode
-        - true
-        - false
-        - null
-        - null
-    - objectives:
-        - Objectives
-        - string
-        - >-
-            Learning outcomes for the episode
-        - true
-        - false
-        - null
-        - null
-    - keypoints:
-        - Key points
-        - string
-        - >-
-            The take-home points for the episode
-        - true
-        - false
-        - null
-        - null
-    - is-break:
-        - Break
-        - boolean
-        - >-
-            Whether this episode is a break (breaks look different in the schedule)
-        - false
-        - false
-        - null
-        - null
-    - ukrn_wb-rules:
-        - UKRN Workshop Builder rules
-        - string
-        - >-
-            List of special rules to apply when this episode is processed by the UKRN Workshop Builder
-        - true
-        - false
-        - ukrn-wb-rules
-        - ['allow-multiple', 'hidden', 'template']
+    - fields:
+        - title:
+            - Title
+            - string
+            - >-
+                The title for the episode
+            - false
+            - true
+            - null
+            - null
+        - teaching:
+            - Teaching time
+            - number
+            - >-
+                The number of minutes teaching time required
+            - false
+            - false
+            - null
+            - null
+        - exercises:
+            - Working time
+            - number
+            - >-
+                The number of minutes required to complete any exercises
+            - false
+            - false
+            - null
+            - null
+        - duration:
+            - Duration
+            - number
+            - >-
+                Additional duration not accounted for by teaching or exercise time (e.g. break time)
+            - false
+            - false
+            - null
+            - null
+        - summary:
+            - Summary
+            - string
+            - >-
+                Short text summarising what happens in the episode
+            - false
+            - false
+            - null
+            - null
+        - questions:
+            - Questions
+            - string
+            - >-
+                Questions which will be addressed during the episode
+            - true
+            - false
+            - null
+            - null
+        - objectives:
+            - Objectives
+            - string
+            - >-
+                Learning outcomes for the episode
+            - true
+            - false
+            - null
+            - null
+        - keypoints:
+            - Key points
+            - string
+            - >-
+                The take-home points for the episode
+            - true
+            - false
+            - null
+            - null
+        - is-break:
+            - Break
+            - boolean
+            - >-
+                Whether this episode is a break (breaks look different in the schedule)
+            - false
+            - false
+            - null
+            - null
+        - ukrn_wb-rules:
+            - UKRN Workshop Builder rules
+            - string
+            - >-
+                List of special rules to apply when this episode is processed by the UKRN Workshop Builder
+            - true
+            - false
+            - ukrn-wb-rules
+            - ['allow-multiple', 'hidden', 'template']
 ---
 
