@@ -12,6 +12,7 @@ is-break:  # whether this episode is a break (has different presentation)
 ukrn_wb_rules: # list of rules for the UKRN Workshop Builder tool
     - allow-multiple # when dragged into the schedule, create a new instance
     - hidden
+    - template
 
 ukrn_wb:
     - fields_structure:
@@ -111,6 +112,6 @@ ukrn_wb:
         - true
         - false
         - ukrn-wb-rules
-        - ['allow-multiple', 'hidden']
+        - ['allow-multiple', 'hidden', 'template']
 ---
 
