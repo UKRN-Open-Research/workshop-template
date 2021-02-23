@@ -176,7 +176,7 @@ ukrn_wb:
             The full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'.
           - # is_array
           - # is_required
-          - # format
+          - long # format
           - # special
       - country:
           - Workshop country

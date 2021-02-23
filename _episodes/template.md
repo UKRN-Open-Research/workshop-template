@@ -67,7 +67,7 @@ ukrn_wb:
                 Short text summarising what happens in the episode
             - false
             - false
-            - null
+            - long
             - null
         - questions:
             - Questions
@@ -76,7 +76,7 @@ ukrn_wb:
                 Questions which will be addressed during the episode
             - true
             - false
-            - null
+            - long
             - null
         - objectives:
             - Objectives
@@ -85,7 +85,7 @@ ukrn_wb:
                 Learning outcomes for the episode
             - true
             - false
-            - null
+            - long
             - null
         - keypoints:
             - Key points
@@ -94,7 +94,7 @@ ukrn_wb:
                 The take-home points for the episode
             - true
             - false
-            - null
+            - long
             - null
         - is-break:
             - Break
