@@ -14,5 +14,3 @@
 
 {% assign days = days | uniq %}
 {% assign days = days | sort %}
-
-<span style="background-color: lightblue">{{ days }}</span><br/>
