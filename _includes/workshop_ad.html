@@ -2,8 +2,8 @@
   Advertising box at the top of a workshop website home page.
 {% endcomment %}
 
-{% assign begin_address = page.address | slice: 0, 4 | downcase  %}
-{% if page.address == "online" %}
+{% assign begin_address = site.address | slice: 0, 4 | downcase  %}
+{% if site.address == "online" %}
 {% assign online = "true_private" %}
 {% elsif begin_address contains "http" %}
 {% assign online = "true_public" %}
@@ -14,33 +14,29 @@
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      {% unless site.title == "Workshop Title" or site.title == "" %}
       <h1>{{site.title}}</h1>
-      {% endunless %}
-      <h2>{{page.venue}}</h2>
+      <h2>{{site.venue}}</h2>
       <div class="row">
         <div class="col-md-6">
           {% if online == "true_public" %}
-          <p>Online (<a href="{{page.address}}">link</a>)</p>
+          <p>Online (<a href="{{site.address}}">link</a>)</p>
           {% elsif online == "true_private" %}
           <p>Online</p>
           {% endif %}
-          <p>{{page.humandate}}</p>
-          <p>{% if page.humantime %}{{page.humantime}}{% endif %}</p>
         </div>
         <div class="col-md-6">
           <p>
           <strong>Instructors:</strong>
-          {% if page.instructors %}
-          {{page.instructors | join: ', ' %}}
+          {% if site.instructors %}
+          {{site.instructors | join: ', ' %}}
           {% else %}
           to be announced.
           {% endif %}
           </p>
-          {% if page.helpers %}
+          {% if site.helpers %}
           <p>
           <strong>Helpers:</strong>
-          {{page.helpers | join: ', ' %}}
+          {{site.helpers | join: ', ' %}}
           </p>
           {% endif %}
         </div>

@@ -8,8 +8,7 @@ helpers: []
 # A list of hh_mm time formats [avoids jekyll auto-conversion].
 # Only days with scheduled items get a start time.
 # Days which can't be matched will use the first entry.
-start_times:
-  - 09_00
+start_times: ["09_00"]
 # list of files in _includes/install_instructions to use in the setup page
 setup_files: []
 language: en
@@ -22,7 +21,7 @@ start_date:
 collaborative_notes:
 eventbrite:
 # list of files in path _includes/intro/* .md files can be customised; .html files cannot be customised. Files with an initial _ are ignored.
-optional_intro_sections: ['requirements', 'accessibility']
+optional_intro_sections: ["requirements", "accessibility"]
 
 # Custom but fixed fields
 kind: workshop
