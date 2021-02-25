@@ -11,7 +11,7 @@ helpers: []
 start_times:
   - 09_00
 # list of files in _includes/install_instructions to use in the setup page
-setup_files:
+setup_files: []
 language: en
 venue:
 address:
@@ -22,9 +22,7 @@ start_date:
 collaborative_notes:
 eventbrite:
 # list of files in path _includes/intro/* .md files can be customised; .html files cannot be customised. Files with an initial _ are ignored.
-optional_intro_sections:
-  - requirements
-  - accessibility
+optional_intro_sections: ['requirements', 'accessibility']
 
 # Custom but fixed fields
 kind: workshop
