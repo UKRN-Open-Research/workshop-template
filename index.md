@@ -101,8 +101,8 @@ This block displays the date and links to Google Calendar.
 </p>
 {% endif %}
 
-{% comment %} Include the extra optional files listed in show {% endcomment %}
-{% for X in site.show %}
+{% comment %} Include the extra optional files listed in optional_intro_sections {% endcomment %}
+{% for X in site.optional_intro_sections %}
 {% include intro/{{ X }}.md %}
 {% endfor %}
 
