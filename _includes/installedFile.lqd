@@ -1,2 +1,2 @@
-{% assign path = page.originalRepository | append: "/" | append: include.path %}
+{% assign path = page.originalRepository | append: "/installed/" | append: include.path %}
 {{ path | relative_url }}
