@@ -226,5 +226,5 @@ The Carpentries maintain a list of common issues that occur during installation 
 that may be useful on the
 [Configuration Problems and Solutions wiki](https://github.com/carpentries/workshop-template/wiki/Configuration-Problems-and-Solutions).
 
-{% include intro/participant-setup.html %}
+{% include intro/_participant-setup.html %}
 {% endif %}

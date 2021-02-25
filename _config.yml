@@ -21,7 +21,7 @@ longitude:
 start_date:
 collaborative_notes:
 eventbrite:
-# list of files in path _includes/intro/*.md. .html files cannot be customised and are always included
+# list of files in path _includes/intro/* .md files can be customised; .html files cannot be customised. Files with an initial _ are ignored.
 optional_intro_sections:
   - requirements
   - accessibility
