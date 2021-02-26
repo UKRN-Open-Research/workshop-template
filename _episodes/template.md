@@ -11,8 +11,9 @@ keypoints: # list of take-home points
 is-break:  # whether this episode is a break (has different presentation)
 ukrn_wb_rules: # list of rules for the UKRN Workshop Builder tool
     - allow-multiple # when dragged into the schedule, create a new instance
-    - hidden
-    - template
+    - hidden # don't show in the builder
+    - template # is a template
+    - undeletable # cannot be removed using the tool
 
 ukrn_wb:
     - fields_structure:
