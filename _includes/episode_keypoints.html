@@ -1,5 +1,5 @@
 {% comment %}
-  Display key points for an episode.
+Display key points for an episode.
 {% endcomment %}
 
 {% if page.keypoints == nil %}
@@ -8,6 +8,7 @@
 {% assign episode_keypoints = page.keypoints %}
 {% endif %}
 
+{% if episode_keypoints and episode_keypoints.size %}
 <blockquote class="keypoints">
   <h2>Key Points</h2>
   <ul>
@@ -16,3 +17,4 @@
     {% endfor %}
   </ul>
 </blockquote>
+{% endif %}

@@ -23,9 +23,9 @@
 {% endif %}
 
 {% comment %}Split out the hour and minute this day starts{% endcomment %}
-{% assign include_times = (START_TIME | size) > 0 %}
+{% assign include_times = START_TIME.size > 0 %}
 {% if include_times %}
-{% assign time_array = START_TIME | split: "_" %}
+{% assign time_array = START_TIME | split: "|" %}
 {% assign H = time_array[0] | modulo: 24 %}
 {% assign M = time_array[1] | modulo: 60 %}
 {% endif %}
@@ -33,64 +33,64 @@
 {% assign new_row = day | modulo: 2 %}
 {% if new_row == 1 %}
 <div class="row">       <!-- Rows contain two days -->
-{% endif %}
-<div class="col-md-6">          <!-- Individual day column -->
-    <h3>Day {{ day }}</h3>
-    <table class="table table-striped schedule-table">
-        {% if index == 1 %}
-        <tr>               <!-- The first time through we want the pre_survey   -->
-            <td>Before starting</td>
-            <td><a href="{{ site.pre_survey }}{{ site.github.project_title }}" target="_blank">Pre-workshop survey</a></td>
-        </tr>
-        {% endif %}
-        {% assign epSize = E | size %}
-        {% if epSize > 0 %}
-        {% for ep in E %}
-        {% comment %}Increment the timer{% endcomment %}
-        <tr class="{% if ep.is-break %}break-episode{% endif %}">               <!-- Every event goes on a new row   -->
-            <td>
-                {% if include_times %}
-                {% comment %}Account for hours incremented by minutes.{% endcomment %}
-                {% assign minutes_to_hours = M | divided_by: 60 %}
-                {% assign minutes_to_hours = minutes_to_hours | floor %}
-                {% assign h = H | plus: minutes_to_hours %}
-                {% assign h = h | modulo: 24 | floor %}
-                {% if h < 10 %}{% assign h = h | prepend: '0' %}{% endif %}
-                {% assign m = M | modulo: 60 | floor %}
-                {% if m < 10 %}{% assign m = m | prepend: '0' %}{% endif %}
-                {{ h }}:{{ m }}
-                {% comment %}Increment timers{% endcomment %}
-                {% assign M = M | plus: (ep.teaching | plus: (ep.exercise | plus: ep.duration) %}
-                {% endif %}
-            </td>        <!-- time    -->
-            <td>
-                {% if ep.summary %}
-                <details>
-                    <summary><a href="{{ep.url | relative_url }}">{{ ep.title }}</a></summary>
-                    {{ ep.summary | newlines_to_br }}
-                </details>
-                {% else %}
-                <a href="{{ep.url | relative_url }}">{{ ep. title }}</a>
-                {% endif %}
-            </td>        <!-- content -->
-        </tr>
-        {% endfor %}
-        {% else %}
-        <tr class="empty-day">               <!-- No events   -->
-            <td colspan="2">
-                <em>There is nothing scheduled for this day.</em>
-            </td>        <!-- content -->
-        </tr>
-        {% endif %}
-        {% if forloop.last %}
-        <tr>               <!-- The last time through we want the post_survey  -->
-            <td>End</td>
-            <td><a href="{{ site.post_survey }}{{ site.github.project_title }}" target="_blank">Post-workshop survey</a></td>
-        </tr>
-        {% endif %}
-    </table>
-</div>
-{% if new_row == 0 or forloop.last %}
+    {% endif %}
+    <div class="col-md-6">          <!-- Individual day column -->
+        <h3>Day {{ day }}</h3>
+        <table class="table table-striped schedule-table">
+            {% if index == 1 %}
+            <tr>               <!-- The first time through we want the pre_survey   -->
+                <td>Before starting</td>
+                <td><a href="{{ site.pre_survey }}{{ site.github.project_title }}" target="_blank">Pre-workshop survey</a></td>
+            </tr>
+            {% endif %}
+            {% assign epSize = E | size %}
+            {% if epSize > 0 %}
+            {% for ep in E %}
+            {% comment %}Increment the timer{% endcomment %}
+            <tr class="{% if ep.is-break %}break-episode{% endif %}">               <!-- Every event goes on a new row   -->
+                <td>
+                    {% if include_times %}
+                    {% comment %}Account for hours incremented by minutes.{% endcomment %}
+                    {% assign minutes_to_hours = M | divided_by: 60 %}
+                    {% assign minutes_to_hours = minutes_to_hours | floor %}
+                    {% assign h = H | plus: minutes_to_hours %}
+                    {% assign h = h | modulo: 24 | floor %}
+                    {% if h < 10 %}{% assign h = h | prepend: '0' %}{% endif %}
+                    {% assign m = M | modulo: 60 | floor %}
+                    {% if m < 10 %}{% assign m = m | prepend: '0' %}{% endif %}
+                    {{ h }}:{{ m }}
+                    {% comment %}Increment timers{% endcomment %}
+                    {% assign M = M | plus: (ep.teaching | plus: (ep.exercise | plus: ep.duration) %}
+                    {% endif %}
+                </td>        <!-- time    -->
+                <td>
+                    {% if ep.summary %}
+                    <details>
+                        <summary><a href="{{ep.url | relative_url }}">{{ ep.title }}</a></summary>
+                        {{ ep.summary | newlines_to_br }}
+                    </details>
+                    {% else %}
+                    <a href="{{ep.url | relative_url }}">{{ ep. title }}</a>
+                    {% endif %}
+                </td>        <!-- content -->
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr class="empty-day">               <!-- No events   -->
+                <td colspan="2">
+                    <em>There is nothing scheduled for this day.</em>
+                </td>        <!-- content -->
+            </tr>
+            {% endif %}
+            {% if forloop.last %}
+            <tr>               <!-- The last time through we want the post_survey  -->
+                <td>End</td>
+                <td><a href="{{ site.post_survey }}{{ site.github.project_title }}" target="_blank">Post-workshop survey</a></td>
+            </tr>
+            {% endif %}
+        </table>
+    </div>
+    {% if new_row == 0 or forloop.last %}
 </div>
 {% endif %}
 {% endif %}

@@ -1,19 +1,19 @@
 {% comment %}
-    Display episode's timings and learning objectives.
+Display episode's timings and learning objectives.
 
-    Regarding the `if page.*** == nil` below:
-    all-in-one page combines all episodes into one.
-    It, therefore, does not define its own objectives, exercises,
-    and questions, which 'normal' episodes define in the front matter.
+Regarding the `if page.*** == nil` below:
+all-in-one page combines all episodes into one.
+It, therefore, does not define its own objectives, exercises,
+and questionss, which 'normal' episodes define in the front matter.
 
-    To display episodes' teaching and exercise times, as well as episode
-    questions and objectives, we pass them as parameters to the Liquid's
-    `include` statement when we generate the page:
+To display episodes' teaching and exercise times, as well as episode
+questionss and objectives, we pass them as parameters to the Liquid's
+`include` statement when we generate the page:
 
-	 include episode_overview.html teaching_time=e.teaching ...
+include episode_overview.html teaching_time=e.teaching ...
 
-    Here we obtain the information we need either from the episode itself or
-    from the parameters passed in.
+Here we obtain the information we need either from the episode itself or
+from the parameters passed in.
 {% endcomment %}
 
 {% if page.teaching == nil %}
@@ -28,6 +28,12 @@
 {% assign exercise_time = page.exercises %}
 {% endif %}
 
+{% if page.duration == nil %}
+{% assign duration = include.duration %}
+{% else %}
+{% assign duration = page.duration %}
+{% endif %}
+
 {% if page.questions == nil %}
 {% assign episode_questions = include.episode_questions %}
 {% else %}
@@ -40,37 +46,55 @@
 {% assign episode_objectives = page.objectives %}
 {% endif %}
 
-
+{% if episode_questions or episode_objectives or episode_time or exercise_time or duration %}
 <blockquote class="objectives">
-  <h2>Overview</h2>
-
-  <div class="row">
-    <div class="col-md-3">
-      <strong>Teaching:</strong> {{ teaching_time }} min
-      <br/>
-      <strong>Exercises:</strong> {{ exercise_time }} min
+    <h2>Overview</h2>
+    {% if episode_questions or episode_time or exercise_time or duration %}
+    <div class="row">
+        {% if episode_time or exercise_time or duration %}
+        <div class="col-md-3">
+            {% if episode_time %}
+            <strong>Teaching:</strong> {{ teaching_time }} min
+            {% endif %}
+            {% if episode_time and (exercise_time or duration) %}
+            <br/>
+            {% endif %}
+            {% endif %}
+            {% if exercise_time %}
+            <strong>Exercises:</strong> {{ exercise_time }} min
+            {% endif %}
+            {% if episode_time and exercise_time and duration %}
+            <br/>
+            {% endif %}
+            {% if duration %}
+            <strong>Duration:</strong> {{ duration }} min
+            {% endif %}
+        </div>
+        {% if episode_questions %}
+        <div class="col-md-9">
+            <strong>Questions</strong>
+            <ul>
+                {% for question in episode_questions %}
+                <li>{{ question|markdownify }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
     </div>
-    <div class="col-md-9">
-      <strong>Questions</strong>
-      <ul>
-	{% for question in episode_questions %}
-	<li>{{ question|markdownify }}</li>
-	{% endfor %}
-      </ul>
+    {% endif %}
+    {% if episode_objectives %}
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-9">
+            <strong>Objectives</strong>
+            <ul>
+                {% for objective in episode_objectives %}
+                <li>{{ objective|markdownify }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-9">
-      <strong>Objectives</strong>
-      <ul>
-	{% for objective in episode_objectives %}
-	<li>{{ objective|markdownify }}</li>
-	{% endfor %}
-      </ul>
-    </div>
-  </div>
-
+    {% endif %}
 </blockquote>
+{% endif %}
