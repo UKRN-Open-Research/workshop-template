@@ -26,6 +26,7 @@ optional_intro_sections: ["requirements", "accessibility"]
 # Custom but fixed fields
 kind: workshop
 ukrn_email: ORT@ukrn.org
+ukrn_site: https://ukrn.org/
 repository: <USERNAME>/<PROJECT>
 carpentries_site: https://carpentries.org/
 pre_survey: https://carpentries.typeform.com/to/wi32rS?slug=
@@ -84,7 +85,7 @@ ukrn_wb:
           - Workshop topic
           - string
           - >-
-            The topic is used to search for pre-existing lessons you can include in your workshop.
+            The topic is used to search for pre-existing lessons you can include in your workshop
           - false
           - true
           - topic
@@ -93,7 +94,7 @@ ukrn_wb:
           - Workshop title
           - string
           - >-
-            The title should let people know the most important information - where the workshop is and what it covers.
+            The title should let people know the most important information - where the workshop is and what it covers
           - false
           - true
           - # format
@@ -112,7 +113,7 @@ ukrn_wb:
             - Contact email address(es)
             - string
             - >-
-                Instructor email address(es) for questions/comments/feedback.
+                Instructor email address(es) for questions/comments/feedback
             - true # is_array
             - # is_required
             - email # format
@@ -131,7 +132,7 @@ ukrn_wb:
           - time
           # The time is actually converted to 09_00 format
           - >-
-            Start times (in 0900 format) for each day of the workshop. If shorter than the number of days, remaining days will use the first entry.
+            Start times (in 0900 format) for each day of the workshop. If shorter than the number of days, remaining days will use the first entry
           - true
           - true
           - hours_minutes
@@ -141,7 +142,7 @@ ukrn_wb:
             - Setup instructions
             - filename
             - >-
-                List of setup guides to include on the homepage.
+                List of setup guides to include on the homepage
             - true # is_array
             - # is_required
             - # format
@@ -151,7 +152,7 @@ ukrn_wb:
             - Workshop language
             - string
             - >-
-                Language code for the language the workshop will be conducted in.
+                Language code for the language the workshop will be conducted in
             - # is_array
             - # is_required
             - iso-639-1
@@ -161,7 +162,7 @@ ukrn_wb:
           - Workshop venue
           - string
           - >-
-            The brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University").
+            The brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
           - # is_array
           - # is_required
           - # format
@@ -170,7 +171,7 @@ ukrn_wb:
           - Venue address
           - string
           - >-
-            The full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'.
+            The full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
           - # is_array
           - # is_required
           - long # format
@@ -179,7 +180,7 @@ ukrn_wb:
           - Workshop country
           - string
           - >-
-            Country code for the institution that hosts the workshop.
+            Country code for the institution that hosts the workshop
           - # is_array
           - # is_required
           - iso-3166-1-alpha-2
@@ -188,7 +189,7 @@ ukrn_wb:
             - Workshop latitude
             - number
             - >-
-                Latitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>).
+                Latitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
             - # is_array
             - # is_required
             - latitude
@@ -197,7 +198,7 @@ ukrn_wb:
             - Workshop longitude
             - number
             - >-
-                Longitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>).
+                Longitude of workshop venue (use <a href="https://www.latlong.net/">https://www.latlong.net"</a>)
             - # is_array
             - # is_required
             - longitude
@@ -217,7 +218,7 @@ ukrn_wb:
           - Collaborative notes link
           - string
           - >-
-            URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document.
+            URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document
           - # is_array
           - # is_required
           - # format
@@ -226,7 +227,7 @@ ukrn_wb:
           - Eventbrite key
           - string
           - >-
-            The alphanumeric key for Eventbrite registration, e.g., "1234567890AB".
+            The alphanumeric key for Eventbrite registration, e.g., "1234567890AB"
           - # is_array
           - # is_required
           - # format
@@ -235,7 +236,7 @@ ukrn_wb:
           - Optional introductory sections
           - filename
           - >-
-            Optional introductory sections which can be included on the homepage and customised.
+            Optional introductory sections which can be included on the homepage and customised
           - true # is_array
           - # is_required
           - # format
