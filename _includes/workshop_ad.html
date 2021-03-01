@@ -10,7 +10,16 @@ Advertising box at the top of a workshop website home page.
 {% else %}
 {% assign online = "false" %}
 {% endif %}
-
+<style>
+  .jumbotron {
+    background-size: cover;
+    background-image: url("{{ '/assets/img/banner.jpg' | relative_url }}");
+  }
+  .jumbotron .row {
+    background-color: whitesmoke;
+    opacity: .8;
+  }
+</style>
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
