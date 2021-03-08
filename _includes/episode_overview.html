@@ -46,10 +46,13 @@ from the parameters passed in.
 {% assign episode_objectives = page.objectives %}
 {% endif %}
 
-{% if episode_questions or episode_objectives or episode_time or exercise_time or duration %}
+{% assign eq = episode_questions.size %}
+{% assign eo = episode_objectives.size %}
+
+{% if eq > 0 or > 0 or episode_time or exercise_time or duration %}
 <blockquote class="objectives">
     <h2>Overview</h2>
-    {% if episode_questions or episode_time or exercise_time or duration %}
+    {% if eq > 0 or eo > 0 or episode_time or exercise_time or duration %}
     <div class="row">
         {% if episode_time or exercise_time or duration %}
         <div class="col-md-3">
@@ -70,30 +73,26 @@ from the parameters passed in.
             <strong>Duration:</strong> {{ duration }} min
             {% endif %}
         </div>
-        {% if episode_questions %}
+        {% if eq > 0 or eo > 0 %}
         <div class="col-md-9">
+            {% if eq > 0 %}
             <strong>Questions</strong>
             <ul>
                 {% for question in episode_questions %}
                 <li>{{ question|markdownify }}</li>
                 {% endfor %}
             </ul>
-        </div>
-        {% endif %}
-    </div>
-    {% endif %}
-    {% if episode_objectives %}
-    <div class="row">
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-9">
+            {% endif %}
+            {% if eo > 0 %}
             <strong>Objectives</strong>
             <ul>
                 {% for objective in episode_objectives %}
                 <li>{{ objective|markdownify }}</li>
                 {% endfor %}
             </ul>
+            {% endif %}
         </div>
+        {% endif %}
     </div>
     {% endif %}
 </blockquote>
