@@ -8,7 +8,7 @@ Display key points for an episode.
 {% assign episode_keypoints = page.keypoints %}
 {% endif %}
 
-{% if episode_keypoints and episode_keypoints.size %}
+{% if episode_keypoints and episode_keypoints.size > 0 %}
 <blockquote class="keypoints">
   <h2>Key Points</h2>
   <ul>
