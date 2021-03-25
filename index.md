@@ -113,22 +113,15 @@ Display the contact email address set in the configuration file.
 {% endcomment %}
 <p id="contact">
   <strong>Contact:</strong>
-  Please email
+  Please email the instructors for more information.
   {% if site.instructor_emails %}
-  {% for email in site.instructor_emails %}
-  {% if forloop.last and site.instructor_emails.size > 1 %}
-  or
-  {% else %}
-  {% unless forloop.first %}
-  ,
-  {% endunless %}
+    The instructors' emails are:
+    <ul>
+    {% for email in site.instructor_emails %}
+      <li><a href='mailto:{{email}}'>{{email}}</a></li>
+    {% endfor %}
+    </ul>
   {% endif %}
-  <a href='mailto:{{email}}'>{{email}}</a>
-  {% endfor %}
-  {% else %}
-  to-be-announced
-  {% endif %}
-  for more information.
 </p>
 
 <hr/>
