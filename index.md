@@ -203,18 +203,18 @@ The schedule is automatically generated from the lessons in `./_episodes` and `.
 <hr/>
 
 
+<h2 id="setup">Setup</h2>
 {% comment %}
 SETUP
 
 The setup page simply loops through the entries in site.setup_files and links them with available installation guides from _includes/install_instructions
 {% endcomment %}
-{% if site.setup_files %}
+{% if site.setup_files.length > 0 %}
 {% comment %}Sum up the times taken to install the software{% endcomment %}
 {% assign setup_time = 0 %}
 {% for X in site.setup_files %}
 {% assign setup_time = setup_time | plus: X.exercise %}
 {% endfor %}
-<h2 id="setup">Setup</h2>
 
 To participate in a {{ site.title | capitalize }}
 workshop,
@@ -227,4 +227,6 @@ that may be useful on the
 [Configuration Problems and Solutions wiki](https://github.com/carpentries/workshop-template/wiki/Configuration-Problems-and-Solutions).
 
 {% include intro/_participant-setup.html %}
+{% else %}
+To participate in this workshop you will need an up-to-date web browser.
 {% endif %}
