@@ -60,7 +60,7 @@
                     {% if m < 10 %}{% assign m = m | prepend: '0' %}{% endif %}
                     {{ h }}:{{ m }}
                     {% comment %}Increment timers{% endcomment %}
-                    {% assign M = M | plus: (ep.teaching | plus: (ep.exercise | plus: ep.duration) %}
+                    {% assign M = M | plus: (ep.teaching | plus: (ep.exercises | plus: ep.duration) %}
                     {% endif %}
                 </td>        <!-- time    -->
                 <td>
