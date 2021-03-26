@@ -40,6 +40,9 @@ Lesson navigation bar.
             <li><a href="{{ relative_root_path }}{% link aio.md %}">All in one page (Beta)</a></li>
           </ul>
         </li>
+        {% if site.collaborative_notes %}
+        <li><a href="{{ site.collaborative_notes }}">Shared Notes</a></li>
+        {% endif %}
       </ul>
       <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
         <div class="form-group">

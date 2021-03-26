@@ -171,12 +171,12 @@ We will use this <a href="{{ site.collaborative_notes }}">collaborative document
 <h2 id="surveys">Surveys</h2>
 {% if pre > 0 and post > 0 %}
 <p>Please be sure to complete these surveys before and after the workshop.</p>
-<p><a href="{{ site.pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
-<p><a href="{{ site.post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
+<p><a href="{{ site.pre_survey }}{{ site.workshop_id }}">Pre-workshop Survey</a></p>
+<p><a href="{{ site.post_survey }}{{ site.workshop_id }}">Post-workshop Survey</a></p>
 {% else %}
 <p>Please be sure to complete this survey {% if pre > 0 %}before{% else %}after{% endif %} the workshop.</p>
-{% if pre > 0 %}<p><a href="{{ site.pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
-{% else %}<p><a href="{{ site.post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>{% endif %}
+{% if pre > 0 %}<p><a href="{{ site.pre_survey }}{{ site.workshop_id }}">Pre-workshop Survey</a></p>
+{% else %}<p><a href="{{ site.post_survey }}{{ site.workshop_id }}">Post-workshop Survey</a></p>{% endif %}
 {% endif %}
 <hr/>
 {% endif %}

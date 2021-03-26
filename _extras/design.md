@@ -18,13 +18,10 @@ The overarching framework in which we work is as follows:
 * **Workshops** are taught classes which equip attendees with the practical skills necessary to embed an Open Research **topic** in their workflow.
     Each workshop is designed and delivered by a researcher and covers the practical implementation of a topic for researchers _in a particular area_.
     Each workshop is supported by a website which contains all of the resources required to participate.
-    The topic of the workshop is delivered via a series of **lessons**.
-* **Lessons** are collections of **episodes** and form modular blocks of content on specific skills.
-    Lessons are only used for collecting episodes together - they don't actually show up as discrete entities in the final workshops.
-    * Examples for lessons in the _Open Code_ topic might be: _Introducing Open Code_, _Version Control_, _Getting a DOI for Code_.
+    The topic of the workshop is delivered via a series of **episodes**.
 * **Episodes** are indivisible chunks of content.
     Episodes can be interspersed with breaks.
-    * The _Version Control_ lesson might include episodes on _Introducing Git_, _Publishing on GitHub_, and _Semantic Versioning_.
+    * A _Version Control_ lesson might include episodes on _Introducing Git_, _Publishing on GitHub_, and _Semantic Versioning_.
 
 ### How the Builder tool works
 
@@ -40,6 +37,8 @@ The Builder tool takes the following steps:
 All of these steps can be reproduced manually.
 Care should be taken when implementing episodes from different sources that they do not have conflicts over files in shared folders (e.g. that you don't have two different episodes trying to create `fig/example01.png`). Make sure to update references to these resources as well as the names of the resources themselves!
 
+Some additional files can be customised, including instructor notes and the workshop introduction (which appears below the banner on the workshop homepage).
+
 ### Customising Lessons
 
 Lessons are stored as GitHub repositories based on this template, but can be barebones because only the content is imported.
@@ -54,10 +53,11 @@ The Lessons require shared files which are shared with this basic template (e.g.
 To avoid this issue, the Builder tool checks whether the file to be copied is exactly the same as the version in the template, and skips it if so.
 If it is different, the user and repository are prepended to the filename, so `_layouts/base.html` becomes `_layouts/github-user_example-lesson_base.html` and references to `_layouts/base.html` in the lesson files are updated accordingly.
 
-## Working with Git and GitHub
+## Advanced: Working with Git and GitHub
 
 There are a few things you need to know in order to understand why we
-do things the way we do.  Some of them are specific to GitHub, rather
+do things the way we do.
+Some of them are specific to GitHub, rather
 than Git itself.
 
 1.  Git uses the term "clone" to mean "a copy of a repository".
