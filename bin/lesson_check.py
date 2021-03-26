@@ -29,7 +29,7 @@ SOURCE_RMD_DIRS = ['_episodes_rmd']
 REQUIRED_FILES = {
     'CODE_OF_CONDUCT.md': True,
     'CONTRIBUTING.md': False,
-    'LICENSE.md': True,
+    'LICENSE.txt': True,
     'README.md': False,
     os.path.join('_extras', 'discuss.md'): True,
     os.path.join('_extras', 'guide.md'): True,

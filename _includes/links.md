@@ -23,7 +23,7 @@
 [lc-lessons]: https://librarycarpentry.org/lessons/
 [lesson-coc]: {{ relative_root_path }}{% link CODE_OF_CONDUCT.md %}
 [lesson-example]: https://carpentries.github.io/lesson-example/
-[lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
+[lesson-license]: {{ relative_root_path }}{% link LICENSE.txt %}
 [lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/

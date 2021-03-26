@@ -1,6 +1,8 @@
 {% comment %}
     Expose the variable days as an ordered list of unique days in the episodes
 {% endcomment %}
+{% comment %}First we create a unified episode list and extract unique days{% endcomment %}
+{% assign EPISODES = site.episodes | concat: site.episodes_rmd %}
 
 {% assign day_list = EPISODES | map: 'day' %}
 {% assign days = "" %}
@@ -14,3 +16,16 @@
 
 {% assign days = days | uniq %}
 {% assign days = days | sort %}
+
+{% assign ordered_episodes = "" %}
+{% for day in days %}
+    {% assign E = site.episodes | where: "day", day %}
+    {% assign E = E | sort: "order" %}
+    {% for e in E %}
+        {% assign ordered_episodes = ordered_episodes | append: e.id %}
+        {% assign ordered_episodes = ordered_episodes | append: ";" %}
+    {% endfor %}
+{% endfor %}
+
+{% assign ordered_episode_ids = ordered_episodes | split: ";" %}
+

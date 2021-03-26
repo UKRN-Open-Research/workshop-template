@@ -10,7 +10,7 @@ and reviews of proposed changes are all welcome.
 ## Contributor Agreement
 
 By contributing,
-you agree that we may redistribute your work under [our license](LICENSE.md).
+you agree that we may redistribute your work under [our license](LICENSE.txt).
 In exchange,
 we will address your issues and/or assess your change proposal as promptly as we can,
 and help you become a member of our community.
@@ -73,7 +73,7 @@ and submitting [bug reports][issues]
 about things that don't work, aren't clear, or are missing.
 If you are looking for ideas, please see the 'Issues' tab for
 a list of issues associated with this repository,
-or you may also look at the issues for [Data Carpentry][dc-issues], 
+or you may also look at the issues for [Data Carpentry][dc-issues],
 [Software Carpentry][swc-issues], and [Library Carpentry][lc-issues] projects.
 
 Comments on issues and reviews of pull requests are just as welcome:

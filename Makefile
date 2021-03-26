@@ -105,9 +105,7 @@ MARKDOWN_SRC = \
   CODE_OF_CONDUCT.md \
   setup.md \
   $(sort $(wildcard _episodes/*.md)) \
-  reference.md \
-  $(sort $(wildcard _extras/*.md)) \
-  LICENSE.md
+  reference.md
 
 # Generated lesson files in the order they appear in the navigation menu.
 HTML_DST = \
