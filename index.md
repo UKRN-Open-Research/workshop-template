@@ -103,7 +103,7 @@ This block displays the date and links to Google Calendar.
 
 {% comment %} Include the extra optional files listed in optional_intro_sections {% endcomment %}
 {% for X in site.optional_intro_sections %}
-{% include intro/{{ X }}.md %}
+{% include intro/optional/{{ X }}.md %}
 {% endfor %}
 
 {% comment %}
