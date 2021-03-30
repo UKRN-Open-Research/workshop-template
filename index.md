@@ -202,17 +202,12 @@ SETUP
 
 The setup page simply loops through the entries in site.setup_files and links them with available installation guides from _includes/install_instructions
 {% endcomment %}
-{% if site.setup_files.length > 0 %}
+{% if site.setup_files.size > 0 %}
 {% comment %}Sum up the times taken to install the software{% endcomment %}
-{% assign setup_time = 0 %}
-{% for X in site.setup_files %}
-{% assign setup_time = setup_time | plus: X.exercise %}
-{% endfor %}
 
 To participate in a {{ site.title | capitalize }}
 workshop,
 you will need access to the software described below.
-Installing this software will take around {{ setup_time }} minutes.
 In addition, you will need an up-to-date web browser.
 
 The Carpentries maintain a list of common issues that occur during installation as a reference for instructors
