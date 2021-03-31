@@ -26,7 +26,7 @@ optional_intro_sections: ["requirements", "accessibility"]
 
 # Custom but fixed fields
 kind: workshop
-ukrn_email: ORT@ukrn.org
+ukrn_email: training@ukrn.org
 ukrn_site: https://ukrn.org/
 repository: <USERNAME>/<PROJECT>
 carpentries_site: https://carpentries.org/
