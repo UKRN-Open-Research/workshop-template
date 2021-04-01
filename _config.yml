@@ -250,4 +250,4 @@ ukrn_wb:
           - true # is_array
           - # is_required
           - # format
-          - ["_includes/intro"] # special - directories to search
+          - ["_includes/intro/optional"] # special - directories to search
