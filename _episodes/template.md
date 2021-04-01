@@ -14,6 +14,7 @@ ukrn_wb_rules: # list of rules for the UKRN Workshop Builder tool
     - hidden # don't show in the builder
     - template # is a template
     - undeletable # cannot be removed using the tool
+    - remove-on-stash # when dragged into the stash, remove
 
 ukrn_wb:
     - fields_structure:
@@ -114,6 +115,6 @@ ukrn_wb:
             - true
             - false
             - ukrn-wb-rules
-            - ['allow-multiple', 'hidden', 'template']
+            - ['allow-multiple', 'hidden', 'template', 'remove-on-stash', 'undeletable']
 ---
 
