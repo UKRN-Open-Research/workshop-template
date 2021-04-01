@@ -14,5 +14,4 @@ Instead, please use GitHub's "template" function to copy this `workshop-template
 
 ## Acknowledgements
 
-This repository is adapted from The Carpentries' ([Software Carpentry][swc-site], [Data Carpentry][dc-site], and
-[Library Carpentry][lc-site]'s) template for creating websites for workshops.
+This repository is adapted from [The Carpentries' template](https://github.com/carpentries/workshop-template) for creating websites for workshops.
