@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/carpentries/workshop-template.svg?branch=gh-pages)](https://travis-ci.com/carpentries/workshop-template)
-
 # The UKRN Open Research Workshop Template
 
 This repository is The [UKRN](https://ukrn.org/) template for creating websites for Open Research Training workshops.
